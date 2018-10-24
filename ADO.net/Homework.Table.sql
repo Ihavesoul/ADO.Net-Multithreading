@@ -1,0 +1,15 @@
+﻿CREATE TABLE Homework (
+HomeworkId int IDENTITY(1,1) NOT NULL,
+Title varchar(255) NOT NULL,
+StudentId int NOT NULL,
+LectionId int NOT NULL,
+CONSTRAINT [Homework_PK] PRIMARY KEY NONCLUSTERED(HomeWorkId),
+CONSTRAINT FK_Student_Homework FOREIGN KEY (StudentId)
+  REFERENCES dbo.Students(StudentId)
+  ON DELETE CASCADE
+  ON UPDATE CASCADE
+,CONSTRAINT FK_Lection_Homework FOREIGN KEY (LectionId)
+ REFERENCES dbo.Lection(LectionId)
+ ON DELETE CASCADE
+ ON UPDATE CASCADE
+  );
